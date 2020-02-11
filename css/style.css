@@ -8,9 +8,12 @@ html, body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	cursor: pointer;
 }
 
 .password {
+	position: relative;
+	z-index: 1;
 	color: #ccc;
 	text-align: center;
 }
@@ -26,6 +29,7 @@ html, body {
 
 .message {
 	position: absolute;
+	z-index: 1;
 	top: 1em;
 	font-size: 2em;
 	text-align: center;
@@ -44,4 +48,34 @@ html, body {
 .message__highlight {
 	font-weight: bold;
 	color: green;
+}
+
+.background {
+	position: absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.background > * {
+	flex-grow: 1;
+}
+
+.background__part1 {
+	background: #473a3c;
+}
+
+.background__part2 {
+	background: #472a2e;
+}
+
+.background__part3 {
+	background: #47171c;
+}
+
+.background__part4 {
+	background: #470308;
 }
