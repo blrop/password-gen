@@ -20,6 +20,11 @@ html, body {
 	background: #0a401d;
 }
 
+.github-corner-wrapper {
+	position: relative;
+	z-index: 10;
+}
+
 .password {
 	z-index: 1;
 	color: #ccc;
@@ -53,7 +58,7 @@ html, body {
 	color: rgba(255, 255, 255, 0.5);
 	padding: 1em;
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	background: #000;
 }
 
@@ -81,7 +86,7 @@ html, body {
 
 .ruler__title {
 	font-size: 1em;
-	padding: 1em 0 0 1em;
+	padding: 3em 0 0 1em;
 }
 
 .ruler__content {
