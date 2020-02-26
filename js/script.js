@@ -14,7 +14,7 @@ const getRandomInt = (max) => {
 };
 
 const generatePassword = (complexityPercent, lengthPercent) => {
-	const length = lengthPercent / 100 * (PASSWORD_MAX_LENGTH - PASSWORD_MIN_LENGTH) + PASSWORD_MIN_LENGTH;
+	const length = Math.round(lengthPercent / 100 * (PASSWORD_MAX_LENGTH - PASSWORD_MIN_LENGTH) + PASSWORD_MIN_LENGTH);
 
 	let alphabet = PASSWORD_ALPHABET_1;
 	if (complexityPercent > 25) {
