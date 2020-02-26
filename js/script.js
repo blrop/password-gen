@@ -12,7 +12,10 @@ const getRandomInt = (max) => {
 
 const generatePassword = (complexityPercent, lengthPercent) => {
 	const length = Math.round(lengthPercent / 100 * (PASSWORD_MAX_LENGTH - PASSWORD_MIN_LENGTH) + PASSWORD_MIN_LENGTH);
-	const complexityIndex = Math.floor(complexityPercent / 25);
+	let complexityIndex = Math.floor(complexityPercent / 25);
+	if (complexityIndex > 3) {
+		complexityIndex = 3;
+	}
 
 	let result = [];
 	for (let i = 0; i < length; i++) {
