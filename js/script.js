@@ -1,9 +1,6 @@
 const PASSWORD_MIN_LENGTH = 6;
 const PASSWORD_MAX_LENGTH = 30;
-const PASSWORD_ALPHABET_1 = 'abcdefghijklmnopqrstyvwxyz';
-const PASSWORD_ALPHABET_2 = 'ABCDEFGHIJKMLNOPQRSTYVWXYZ';
-const PASSWORD_ALPHABET_3 = '1234567890';
-const PASSWORD_ALPHABET_4 = '!@#$%^&*()-=_+[]{};\':",./<>?\\|';
+const ALPHABET = ['abcdefghijklmnopqrstyvwxyz', 'ABCDEFGHIJKMLNOPQRSTYVWXYZ', '1234567890', '!@#$%^&*()-=_+[]{};\':",./<>?\\|'];
 
 const PASSWORD_INFO_GENERATION = 'Click anywhere to copy';
 const PASSWORD_INFO_COPIED = 'The password was copied. Click again to continue generation.';
@@ -15,20 +12,12 @@ const getRandomInt = (max) => {
 
 const generatePassword = (complexityPercent, lengthPercent) => {
 	const length = Math.round(lengthPercent / 100 * (PASSWORD_MAX_LENGTH - PASSWORD_MIN_LENGTH) + PASSWORD_MIN_LENGTH);
-
-	let alphabet = PASSWORD_ALPHABET_1;
-	if (complexityPercent > 25) {
-		alphabet += PASSWORD_ALPHABET_2;
-	}
-	if (complexityPercent > 50) {
-		alphabet += PASSWORD_ALPHABET_3;
-	}
-	if (complexityPercent > 75) {
-		alphabet += PASSWORD_ALPHABET_4;
-	}
+	const complexityIndex = Math.floor(complexityPercent / 25);
 
 	let result = [];
 	for (let i = 0; i < length; i++) {
+		const alphabetIndex = getRandomInt(complexityIndex + 1);
+		const alphabet = ALPHABET[alphabetIndex];
 		result.push(alphabet[getRandomInt(alphabet.length)]);
 	}
 	return result.join('');
