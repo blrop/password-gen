@@ -3,19 +3,29 @@ html, body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	font-family: sans-serif;
-	background: #333;	
+	font-family: monospace;
+	color: #fff;
+}
+
+#app {
+	position: fixed;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
 	cursor: pointer;
+	background: #0a401d;
 }
 
 .password {
-	position: relative;
 	z-index: 1;
 	color: #ccc;
 	text-align: center;
+	padding: 2em;
+	background: rgba(0, 0, 0, 0.3);
 }
 
 .password__content {
@@ -27,31 +37,8 @@ html, body {
 	color: #999;
 }
 
-.message {
-	position: absolute;
-	z-index: 1;
-	top: 1em;
-	font-size: 2em;
-	text-align: center;
-	background: #666;
-	color: #000;
-	padding: 0.2em 0.5em;
-	border-radius: 0.2em;
-	transition: opacity 0.3s 0s;
-	opacity: 0;
-}
-
-.message.shown {
-	opacity: 1;
-}
-
-.message__highlight {
-	font-weight: bold;
-	color: green;
-}
-
 .background {
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	bottom: 0;
@@ -60,22 +47,50 @@ html, body {
 	flex-direction: column;
 }
 
-.background > * {
+.background__part {
 	flex-grow: 1;
+	font-size: 2em;
+	color: rgba(255, 255, 255, 0.5);
+	padding: 1em;
+	display: flex;
+	align-items: center;
+	background: #000;
 }
 
-.background__part1 {
-	background: #473a3c;
+.background__part--1 {
+	background: rgba(0, 0, 0, 0.4);
 }
 
-.background__part2 {
-	background: #472a2e;
+.background__part--2 {
+	background: rgba(0, 0, 0, 0.3);
 }
 
-.background__part3 {
-	background: #47171c;
+.background__part--3 {
+	background: rgba(0, 0, 0, 0.2);
 }
 
-.background__part4 {
-	background: #470308;
+.background__part--4 {
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.ruler {
+	position: absolute;
+	width: 100%;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.ruler__title {
+	font-size: 1em;
+	padding: 1em 0 0 1em;
+}
+
+.ruler__content {
+	display: flex;
+	justify-content: space-around;
+}
+
+.ruler__item {
+	padding: 1em;
+	font-size: 1em;
+	flex-grow: 1;
 }

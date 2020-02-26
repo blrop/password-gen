@@ -3,24 +3,31 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Password generator</title>
-	<script src="js/script.js"></script>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<div class="background">
-		<div class="background__part1"></div>
-		<div class="background__part2"></div>
-		<div class="background__part3"></div>
-		<div class="background__part4"></div>
+	<div id="app" v-on:mousemove="onMouseMove" v-on:click="onClick">
+		<div class="background">
+			<div class="ruler">
+				<div class="ruler__title">Length of the password:</div>
+				<div class="ruler__content">
+					<div class="ruler__item" v-for="item in lengthList">{{ item }}</div>
+				</div>
+			</div>
+
+			<div class="background__part background__part--1">[a-z]</div>
+			<div class="background__part background__part--2">[a-zA-Z]</div>
+			<div class="background__part background__part--3">[a-zA-Z0-9]</div>
+			<div class="background__part background__part--4">[a-zA-Z0-9] + special characters</div>
+		</div>
+
+		<div class="password">
+			<div class="password__content">{{ password }}</div>
+			<div class="password__info">{{ passwordInfo }}</div>
+		</div>
 	</div>
 
-	<div id="message" class="message">
-		The password <span class="message__highlight" id="current-password"></span> was copied to clipboard. Enjoy!
-	</div>
-
-	<div class="password">
-		<div id="password" class="password__content">ahf$7&grkue@357$(kauef</div>
-		<div class="password__info">Click anywhere to copy</div>
-	</div>
+	<script src="js/vue.min.js"></script>
+	<script src="js/script.js"></script>
 </body>
 </html>
