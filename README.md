@@ -1,3 +1,3 @@
-## A simple password generator.
+## An easy to use password generator.
 
-Generate a password of the required complexity with a single mouse wave and click to copy it. 
+You need just a single mouse wave to gen a password of the required length and complexity.
