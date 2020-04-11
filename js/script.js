@@ -10,15 +10,9 @@ const getRandomInt = (max) => {
 	return Math.floor(Math.random() * Math.floor(max));
 };
 
-const generatePassword = (complexityPercent, lengthPercent) => {
-	const length = Math.round(lengthPercent / 100 * (PASSWORD_MAX_LENGTH - PASSWORD_MIN_LENGTH) + PASSWORD_MIN_LENGTH);
-	let complexityIndex = Math.floor(complexityPercent / 25);
-	if (complexityIndex > 3) {
-		complexityIndex = 3;
-	}
-
+const generatePassword = (complexityIndex, passwordLength) => {
 	let result = [];
-	for (let i = 0; i < length; i++) {
+	for (let i = 0; i < passwordLength; i++) {
 		const alphabetIndex = getRandomInt(complexityIndex + 1);
 		const alphabet = ALPHABET[alphabetIndex];
 		result.push(alphabet[getRandomInt(alphabet.length)]);
@@ -28,12 +22,26 @@ const generatePassword = (complexityPercent, lengthPercent) => {
 
 const getPercent = (currentValue, max) => Math.round(currentValue / (max / 100));
 
+const complexityPercentToIndex = (complexityPercent) => {
+    let result = Math.floor(complexityPercent / 25);
+    if (result > 3) {
+        result = 3;
+    }
+    return result;
+};
+
+const lengthPercentToLength = (lengthPercent) => {
+    return Math.round(lengthPercent / 100 * (PASSWORD_MAX_LENGTH - PASSWORD_MIN_LENGTH) + PASSWORD_MIN_LENGTH);
+};
+
 let app = new Vue({
 	el: '#app',
 	data: {
 		generationInProgress: true,
 		password: INIT_PASSWORD_VALUE,
 		lengthList: [],
+        complexityIndex: 0,
+        passwordLength: 0,
 	},
 	computed: {
 		passwordInfo() {
@@ -53,9 +61,9 @@ let app = new Vue({
 				return;
 			}
 
-			const complexityPercent = getPercent(e.clientY, e.view.innerHeight);
-			const lengthPercent = getPercent(e.clientX, e.view.innerWidth);
-			this.password = generatePassword(complexityPercent, lengthPercent);
+			this.complexityIndex = complexityPercentToIndex(getPercent(e.clientY, e.view.innerHeight));
+			this.passwordLength = lengthPercentToLength(getPercent(e.clientX, e.view.innerWidth));
+			this.password = generatePassword(this.complexityIndex, this.passwordLength);
 		},
 		onClick() {
 			this.generationInProgress = !this.generationInProgress;

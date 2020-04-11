@@ -15,14 +15,14 @@
 			<div class="ruler">
 				<div class="ruler__title">Length of the password:</div>
 				<div class="ruler__content">
-					<div class="ruler__item" v-for="item in lengthList">{{ item }}</div>
+					<div class="ruler__item" v-for="item in lengthList" v-bind:class="{ 'ruler__item--current': item === passwordLength }">{{ item }}</div>
 				</div>
 			</div>
 
-			<div class="background__part background__part--1">[a-z]</div>
-			<div class="background__part background__part--2">[a-zA-Z]</div>
-			<div class="background__part background__part--3">[a-zA-Z0-9]</div>
-			<div class="background__part background__part--4">[a-zA-Z0-9] + special characters</div>
+			<div class="background__part background__part--1" v-bind:class="{ 'background__part--current': complexityIndex == 0 }">[a-z]</div>
+			<div class="background__part background__part--2" v-bind:class="{ 'background__part--current': complexityIndex == 1 }">[a-zA-Z]</div>
+			<div class="background__part background__part--3" v-bind:class="{ 'background__part--current': complexityIndex == 2 }">[a-zA-Z0-9]</div>
+			<div class="background__part background__part--4" v-bind:class="{ 'background__part--current': complexityIndex == 3 }">[a-zA-Z0-9] + special characters</div>
 		</div>
 
 		<div class="password">

@@ -78,6 +78,10 @@ html, body {
 	background: rgba(0, 0, 0, 0.1);
 }
 
+.background__part--current {
+    color: #fff;
+}
+
 .ruler {
 	position: absolute;
 	width: 100%;
@@ -98,4 +102,9 @@ html, body {
 	padding: 1em;
 	font-size: 1em;
 	flex-grow: 1;
+}
+
+.ruler__item--current {
+    color: #fff;
+    font-weight: bold;
 }
