@@ -40,6 +40,7 @@ let app = new Vue({
 		generationInProgress: true,
 		password: INIT_PASSWORD_VALUE,
 		lengthList: [],
+		complexityList: ['[a-z]', '[a-zA-Z]', '[a-zA-Z0-9]', '[a-zA-Z0-9] + special characters'],
         complexityIndex: 0,
         passwordLength: 0,
 	},

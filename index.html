@@ -19,10 +19,10 @@
 				</div>
 			</div>
 
-			<div class="background__part background__part--1" v-bind:class="{ 'background__part--current': complexityIndex == 0 }">[a-z]</div>
-			<div class="background__part background__part--2" v-bind:class="{ 'background__part--current': complexityIndex == 1 }">[a-zA-Z]</div>
-			<div class="background__part background__part--3" v-bind:class="{ 'background__part--current': complexityIndex == 2 }">[a-zA-Z0-9]</div>
-			<div class="background__part background__part--4" v-bind:class="{ 'background__part--current': complexityIndex == 3 }">[a-zA-Z0-9] + special characters</div>
+			<div class="background__part"
+				 v-for="(item, index) in complexityList"
+				 v-bind:class="[ `background__part--${index}`, { 'background__part--current': complexityIndex === index } ]"
+			>{{ item }}</div>
 		</div>
 
 		<div class="password">

@@ -62,19 +62,19 @@ html, body {
 	background: #000;
 }
 
-.background__part--1 {
+.background__part--0 {
 	background: rgba(0, 0, 0, 0.4);
 }
 
-.background__part--2 {
+.background__part--1 {
 	background: rgba(0, 0, 0, 0.3);
 }
 
-.background__part--3 {
+.background__part--2 {
 	background: rgba(0, 0, 0, 0.2);
 }
 
-.background__part--4 {
+.background__part--3 {
 	background: rgba(0, 0, 0, 0.1);
 }
 
